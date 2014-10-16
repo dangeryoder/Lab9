@@ -13,10 +13,11 @@
 # - A temperature of over 105F
 # - A temperature of over 102F and they have been sick in the last 24 hours
 # - A temperature over 100, OR they've been sick in the last 24 hours, AND they've recently travelled to West Africa.
+keepg = True
 
-print "What is your temperature?"
-temperature = int(raw_input())
-while temperature >= 100:
+while keepg:
+    print "What is your temperature?"
+    temperature = int(raw_input())
     if temperature >= 105:
         print "You're dead!"
     elif temperature >= 102:
@@ -31,4 +32,16 @@ while temperature >= 100:
         answer2 = raw_input()
         if answer2 == "Yes":
             print "Have you recently traveled to West Africa? Yes or No."
-            answer3 == raw_input()
+            answer3 = raw_input()
+            if answer3 == "Yes":
+                print "You're dead!"
+            else:
+                print "You're probably fine."
+        else:
+            print "You're probably fine."
+    else:
+        print "You're fine!"
+    print "Are there anymore patients?"
+    userInput = raw_input()
+    if userInput == "No":
+        keepg = False
